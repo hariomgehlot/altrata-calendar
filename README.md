@@ -1,46 +1,88 @@
-# Getting Started with Create React App
+# Calendar Component Library
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A reusable React calendar component that displays a month view for a given date. Built with TypeScript and TailwindCSS.
 
-## Available Scripts
+## Installation
 
-In the project directory, you can run:
+```bash
+npm install cal
+# or
+yarn add cal
+# or
+pnpm add cal
+```
 
-### `npm start`
+## Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This component requires:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- React 16.8.0 or higher
+- TailwindCSS (for styling)
 
-### `npm test`
+Make sure you have TailwindCSS configured in your project. If you don't have it set up, follow the [TailwindCSS installation guide](https://tailwindcss.com/docs/installation).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Usage
 
-### `npm run build`
+```tsx
+import { Calendar } from "cal";
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+function App() {
+  return <Calendar date={new Date("2022-10-03")} />;
+}
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Props
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `Calendar`
 
-### `npm run eject`
+| Prop   | Type   | Required | Description                                                                                                                   |
+| ------ | ------ | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `date` | `Date` | Yes      | The date to display in the calendar. The calendar will render the month and year of this date and highlight the specific day. |
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Examples
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Basic Usage
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```tsx
+import { Calendar } from "cal";
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+function MyComponent() {
+  return <Calendar date={new Date("2022-10-03")} />;
+}
+```
 
-## Learn More
+### Different Dates
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```tsx
+import { Calendar } from 'cal';
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+// Display March 2020 with the 23rd highlighted
+<Calendar date={new Date("2020-03-23")} />
+
+// Display current date
+<Calendar date={new Date()} />
+```
+
+## Features
+
+- ✅ Displays month and year header
+- ✅ Shows weekday labels (Su, Mo, Tu, We, Th, Fr, Sa)
+- ✅ Displays all dates for the month, properly aligned
+- ✅ Highlights the specified date
+- ✅ Handles leap years correctly
+- ✅ Fully typed with TypeScript
+- ✅ Comprehensive test coverage
+
+## Development
+
+This project was created with Create React App.
+
+### Available Scripts
+
+- `npm start` - Runs the app in development mode
+- `npm test` - Launches the test runner
+- `npm run build` - Builds the app for production
+
+## License
+
+MIT
